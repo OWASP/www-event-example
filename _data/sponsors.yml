@@ -1,14 +1,14 @@
-- logo: /assets/images/sponsors/securecodewarrior_gold.png
+- logo: assets/images/sponsors/securecodewarrior_gold.png
   name: Secure Code Warrior
   url: https://securecodewarrior.com
   backgroundSize: 125px
   type: Gold
-- logo: /assets/images/sponsors/contrast-security.png
+- logo: assets/images/sponsors/contrast-security.png
   name: Contrast Security
   url: https://www.contrastsecurity.com
   backgroundSize: 125px
   type: Ruby
-- logo: /assets/images/sponsors/ripstech_black.png
+- logo: assets/images/sponsors/ripstech_black.png
   name: RIPS Technologies
   url: https://ripstech.com
   backgroundSize: 125px
