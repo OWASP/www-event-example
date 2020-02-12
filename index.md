@@ -23,7 +23,7 @@ pitch: "Global AppSec - Example is coming January 1-5, 2055 to the OWASP Foundat
 
 </div>
 
-<div style="float:right;background-color:lightblue;border-radius: 8px;padding:16px;">
+<div style="float:right;background-color:lightgray;border-radius: 8px;padding:16px;">
         
 <h3>Conference Pricing</h3>
 
