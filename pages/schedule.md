@@ -2,6 +2,7 @@
 
 title: Schedule
 layout: event
+permalink: /schedule/
 
 ---
 
