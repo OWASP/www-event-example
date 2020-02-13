@@ -3,7 +3,7 @@
 - title: PROGRAM
   items:
     - title: Schedule
-      url : /schedule
+      url : schedule
     - title: Keynotes
       url : /event-example
     - title: Training
@@ -13,7 +13,7 @@
 - title: ABOUT
   items:
     - title: Sponsors & Exhibitors
-      url  : /sponsors
+      url  : sponsors
     - title: Volunteer
       url  : /event-example
     - title: Venue, Travel, & Lodging
