@@ -1,41 +1,20 @@
 ---
 
-title: OWASP Example Event
+title: Global AppSec Example 2020
 layout: event
 registration_url: https://owasp.org
 training: January 1 - 3
 conference: January 4 - 5
 venue: OWASP Foundation Event Center<br>101 Simian Sands<br>Montpelier, VT
 location: Montpelier
-background: example-event.jpg
+background: sf_82955120@N05_1200.jpg
 pitch: "Global AppSec - Example is coming January 1-5, 2055 to the OWASP Foundation Convention Center in Montpelier. Designed for private and public sector infosec professionals,         the OWASP three day training and two day conference equips developers, defenders, and advocates to build a more secure web.
         <br/><br/>
         Join us for a celebration of leading application security technologies, speakers, prospects, and community, in a unique event that will build on everything you already know to expect from an OWASP Global Conference."
 
 ---
 
-<!-- rebuild 07 -->
-<div style="float:left;max-width:70%;">
-        
-<strong>{{ page.venue }}</strong>
-<br>
+***{{ page.venue }}***
+
 {{ page.pitch }}
 
-</div>
-
-<div style="float:right;background-color:lightgray;border-radius: 8px;padding:16px;">
-        
-<h3>Conference Pricing</h3>
-
-<ul>
-{% for price in site.data.pricing %}
-<li class='evnt-price-title'>{{ price.title }}</li><li class='evnt-price'>{{ price.price }}</li>
-{% for subitem in price.items %}
-{% if forloop.first %}<ul>{% endif %}
-<li class='evnt-price-title'>{{ subitem.title }}</li><li class='evnt-price'>{{ subitem.price }}</li>
-{% if forloop.last %}</ul>{% endif %}
-{% endfor %}
-{% endfor %}
-</ul>
-
-</div>
