@@ -1,7 +1,7 @@
 ---
 
 title: Schedule
-layout: event-noheader
+layout: event_noheader
 permalink: /schedule/
 
 ---
