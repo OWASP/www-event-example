@@ -3,20 +3,20 @@
 - title: PROGRAM
   items:
     - title: Schedule
-      url : /www--site-theme/event-example
+      url : /schedule
     - title: Keynotes
-      url : /www--site-theme/event-example
+      url : /event-example
     - title: Training
-      url : /www-site-theme/event-example
+      url : /event-example
     - title: Call for Speakers/Trainers
-      url : /www-site-theme/event-example
+      url : /event-example
 - title: ABOUT
   items:
     - title: Sponsors & Exhibitors
-      url  : /www--site-theme/event-example
+      url  : /sponsors
     - title: Volunteer
-      url  : /www--site-theme/event-example
+      url  : /event-example
     - title: Venue, Travel, & Lodging
-      url  : /www--site-theme/event-example
+      url  : /event-example
     - title: Progam Team
-      url  : /www--site-theme/event-example
+      url  : /event-example
