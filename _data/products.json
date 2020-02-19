@@ -1,1 +1,1 @@
-{"id": "prod_GlTOn2XRdwh5OL", "name": "Testing", "currency": "usd", "products": []}
+{"id": "prod_GlTOn2XRdwh5OL", "name": "Testing", "currency": "usd", "products": [{"id": "sku_GlTOG0zt3Iebbn", "name": "Test Product", "amount": 2000, "metadata": {"type": "regular", "display_start": "2020-02-20", "display_end": "2020-02-22", "inventory": "5", "starting_inventory": "5"}}]}
