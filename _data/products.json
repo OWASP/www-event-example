@@ -1,1 +1,1 @@
-{"id": "prod_GlaMtsscqsTbEo", "name": "Test Event", "currency": "usd", "products": [{"id": "sku_GlaNmozcNLOgqX", "name": "Test Product", "amount": 5000, "metadata": {"type": "regular", "description": "this product should always display"}}, {"id": "sku_GlaN7wPso9n7gv", "name": "Another product", "amount": 10000, "metadata": {"type": "regular", "display_start": "2020-02-21", "display_end": "2020-02-24", "description": "This product should not display"}}]}
+{"id": "prod_GlsJ65plnI8aNm", "name": "Testing Stripe", "currency": "usd", "products": []}
