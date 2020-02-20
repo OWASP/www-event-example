@@ -245,7 +245,7 @@ window.addEventListener('load', function () {
             email: vm.email,
             sku: vm.selectedProduct
           }
-          axios.post('http://localhost:7071/api/EventsCheckout', postData).then(function (response) {
+          axios.post('https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==', postData).then(function (response) {
 	    stripe.redirectToCheckout({
 	      sessionId: response.data.data.session_id
 	    }).then(function (result) {
