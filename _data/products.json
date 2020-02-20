@@ -1,1 +1,1 @@
-{"id": "prod_GlUZfDSyG3SjNS", "name": "Test event", "currency": "usd", "products": [{"id": "sku_GlUZAeD2AMmr9T", "name": "Test Product", "amount": 5000, "metadata": {"type": "regular", "display_start": "2020-02-20", "display_end": "2020-02-22", "inventory": "500", "starting_inventory": "500"}}, {"id": "sku_GlUZyHS1Y41QHR", "name": "Another Product", "amount": 50000, "metadata": {"type": "regular"}}]}
+{"id": "prod_GlaMtsscqsTbEo", "name": "Test Event", "currency": "usd", "products": []}
