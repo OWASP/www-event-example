@@ -1,1 +1,1 @@
-{"id": "prod_GlaMtsscqsTbEo", "name": "Test Event", "currency": "usd", "products": []}
+{"id": "prod_GlaMtsscqsTbEo", "name": "Test Event", "currency": "usd", "products": [{"id": "sku_GlaNmozcNLOgqX", "name": "Test Product", "amount": 5000, "metadata": {"type": "regular", "description": "this product should always display"}}]}
