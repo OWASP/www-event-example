@@ -80,6 +80,12 @@ permalink: /register/
   margin-top: 4px !important;
 }
 
+.help-text {
+  color: #ADADAD;
+  font-size: 75%;
+  margin-top: 4px !important;
+}
+
 .submit-button {
   border: 0;
   padding: 16px;
@@ -143,10 +149,16 @@ permalink: /register/
           placeholder="Company Name" />
           <div class="error-text" v-if="errors.company">{{ errors.company[0] }}</div>
         </div>
-        <div>
+        <div style="margin-bottom: 40px">
           <input type="text" v-model="email" aria-label="Email Address"
           placeholder="Email Address" />
           <div class="error-text" v-if="errors.email">{{ errors.email[0] }}</div>
+        </div>
+        <div style="margin-bottom: 20px">
+          <input type="text" v-model="discount_code" aria-label="Discount Code"
+          placeholder="Discount Code" />
+          <div class="error-text" v-if="errors.discount_code">{{ errors.discount_code[0] }}</div>
+          <div class="help-text">Your discount will be applied at checkout, after submitting this form.</div>
         </div>
       </div>
       <div class="button-container">
@@ -172,6 +184,7 @@ window.addEventListener('load', function () {
       name: null,
       company: null,
       email: null,
+      discount_code: null,
       products: {{ site.data.products | jsonify }},
       errors: {},
       loading: false
@@ -243,7 +256,8 @@ window.addEventListener('load', function () {
             name: vm.name,
             company: vm.company,
             email: vm.email,
-            sku: vm.selectedProduct
+            sku: vm.selectedProduct,
+            discount_code: vm.discount_code
           }
           axios.post('https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==', postData).then(function (response) {
 	    stripe.redirectToCheckout({
