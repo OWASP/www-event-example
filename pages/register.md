@@ -126,9 +126,7 @@ permalink: /register/
         <div class="product-name">
           <strong>{{ product.name }}</strong>
         </div>
-        <div class="product-description">
-          {{ product.description }}
-        </div>
+        <div class="product-description" v-html="product.description"></div>
       </div>
       <div class="product-price">
         {{ product.price }}
