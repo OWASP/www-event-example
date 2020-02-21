@@ -99,6 +99,10 @@ permalink: /register/
   border-radius: 4.5px;
 }
 
+.product-information {
+  max-width: 70%;
+}
+
 @media (max-width: 768px) {
   .registration-container {
     max-width: 100%;
