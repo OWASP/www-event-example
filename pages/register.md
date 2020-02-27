@@ -362,7 +362,7 @@ window.addEventListener('load', function () {
           })
         } else {
           const postData = {
-            name: vm.name,
+            name: vm.first_name,
             company: vm.company,
             email: vm.email,
             sku: vm.selectedProducts[0],
@@ -390,9 +390,6 @@ window.addEventListener('load', function () {
           errors.email = ['Please enter a valid email address'];
         }
 
-        if (!this.name) {
-          errors.name = ['Please enter your name'];
-        }
 
         this.errors = errors;
         },
