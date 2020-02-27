@@ -10,23 +10,14 @@ permalink: /register/
 [v-cloak] {display: none}
 
 .registration-container {
-  max-width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 60%;
 }
 
 .product-list-item {
-  margin-bottom: 8px;
-  background-color: #ECECEC;
-  border: 1px solid #DADADA;
+  margin-bottom: 24px;
   padding: 12px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .product-list-item.selected {
@@ -45,6 +36,16 @@ permalink: /register/
   font-weight: bold;
   margin-left: 30px;
   font-size: 1.45rem;
+}
+
+.product-button {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #ccc;
+  border: 1px solid black;
+  cursor: pointer;
+  padding: 8px;
 }
 
 .registrant-information {
@@ -103,6 +104,65 @@ permalink: /register/
   max-width: 70%;
 }
 
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #ff0000;
+}
+
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 @media (max-width: 768px) {
   .registration-container {
     max-width: 100%;
@@ -111,21 +171,18 @@ permalink: /register/
 
 @media (min-width: 768px) {
   .registrant-information {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 70%;
   }
 }
 </style>
 
 {% raw %}
 <div id="registration-app" class="registration-container" v-cloak>
-  <h1>Register</h1>
-  <p style="font-weight: bold;">Select a ticket option below:</p>
-  <div class="product-listing">
-    <div class="product-list-item" v-for="product in productListing"
-    v-bind:class="selectedProduct === product.sku ? 'selected' : ''"
-    v-on:click="selectProduct(product.sku)">
+  <h1>Event Title</h1>
+  <p style="margin-bottom: 40px; font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, odio vel fermentum condimentum, ipsum dui rhoncus nisl, ut scelerisque arcu nunc ac diam. Curabitur tempus, libero et sodales egestas, massa quam lacinia diam, eu laoreet urna lectus in odio. Aenean consequat, ante nec cursus ornare, libero lectus dignissim ante, id semper leo quam eget dui. Quisque non nunc et risus blandit mattis. Sed lorem enim, bibendum nec luctus eu, pulvinar et nisi. Integer porta bibendum sapien, ut viverra sem placerat a. Curabitur et eros ac enim gravida feugiat sed sed mauris.</p>
+  <h2 style="margin-bottom: 20px;">Tickets</h2>
+  <div class="product-listing" style="border-bottom: 1px solid #000000; padding-bottom: 20px; margin-bottom: 20px;">
+    <div class="product-list-item" v-for="product in productListing">
       <div class="product-information">
         <div class="product-name">
           <strong>{{ product.name }}</strong>
@@ -133,38 +190,77 @@ permalink: /register/
         <div class="product-description" v-html="product.description"></div>
       </div>
       <div class="product-price">
-        {{ product.price }}
+        <div class="product-button" v-on:click="toggleProduct(product.sku)">
+          {{ product.price }}
+        </div>
       </div>
     </div>
   </div>
-  <form id="registration-information" v-if="selectedProduct" v-on:submit.prevent="handleSubmit">
+  <form id="registration-information" v-on:submit.prevent="handleSubmit">
     <div class="registrant-information">
-      <h2>Registrant Information</h2>
+      <h2>Attendee Information</h2>
       <div class="registrant-form">
         <div>
-          <input type="text" v-model="name" aria-label="Full Name"
-          placeholder="Full Name" />
-          <div class="error-text" v-if="errors.name">{{ errors.name[0] }}</div>
+          <input type="text" v-model="email" aria-label="Email Address"
+          placeholder="Email Address" />
+          <div class="error-text" v-if="errors.email">{{ errors.email[0] }}</div>
+        </div>
+        <div>
+          <input type="text" v-model="email_confirm" aria-label="Confirm Email Address"
+          placeholder="Confirm Email Address" />
+          <div class="error-text" v-if="errors.email_confirm">{{ errors.email_confirm[0] }}</div>
         </div>
         <div>
           <input type="text" v-model="company" aria-label="Company Name"
           placeholder="Company Name" />
           <div class="error-text" v-if="errors.company">{{ errors.company[0] }}</div>
         </div>
-        <div style="margin-bottom: 40px">
-          <input type="text" v-model="email" aria-label="Email Address"
-          placeholder="Email Address" />
-          <div class="error-text" v-if="errors.email">{{ errors.email[0] }}</div>
+        <div style="display: flex; margin-top: 0px; margin-bottom: 0px;">
+          <div style="margin-right: 20px;">
+            <input type="text" v-model="first_name" aria-label="First Name"
+            placeholder="First Name" />
+            <div class="error-text" v-if="errors.first_name">{{ errors.first_name[0] }}</div>
+          </div>
+          <div style="flex: 1;">
+            <input type="text" v-model="last_name" aria-label="Last Name"
+            placeholder="Last Name" />
+            <div class="error-text" v-if="errors.last_name">{{ errors.last_name[0] }}</div>
+          </div>
         </div>
-        <div style="margin-bottom: 20px">
-          <input type="text" v-model="discount_code" aria-label="Discount Code"
-          placeholder="Discount Code" />
-          <div class="error-text" v-if="errors.discount_code">{{ errors.discount_code[0] }}</div>
-          <div class="help-text">Your discount will be applied at checkout, after submitting this form.</div>
+        <div>
+          <input type="text" v-model="title" aria-label="Title"
+          placeholder="Title" />
+          <div class="error-text" v-if="errors.title">{{ errors.title[0] }}</div>
+        </div>
+        <div>
+          <input type="text" v-model="dietary_restrictions" aria-label="Dietary Restrictions"
+          placeholder="Dietary Restrictions" />
+          <div class="error-text" v-if="errors.dietary_restrictions">{{ errors.dietary_restrictions[0] }}</div>
+        </div>
+        <div style="margin-bottom: 35px; margin-top: 35px;">
+      <label class="checkbox-container">Agree to Terms of Purchase <strong>*</strong>
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
+      <label class="checkbox-container">Join the OWASP Mailing List
+        <input type="checkbox">
+        <span class="checkmark"></span>
+      </label>
         </div>
       </div>
-      <div class="button-container">
-        <button type="submit" class="submit-button" v-bind:disabled="loading">Purchase Ticket</button>
+      <div class="button-container" style="display: flex;">
+      <div style="width: 250px; margin-right: 20px;">
+        <button type="submit" style="display: block;" class="submit-button" v-bind:disabled="loading">Purchase Ticket</button>
+        </div>
+        <div style="margin-bottom: 20px; flex: 1;">
+          <input type="text" style="width: 100%; border: 1px solid black;" v-model="discount_code" aria-label="Discount Code (if applicable)"
+          placeholder="Discount Code (if applicable)" />
+          <div class="error-text" v-if="errors.discount_code">{{ errors.discount_code[0] }}</div>
+          <div class="help-text">Note discounts will be applied at checkout</div>
+        </div>
+      </div>
+      <div class="help-text" style="margin-top: 30px;">
+        <strong>*</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, odio vel fermentum condimentum, ipsum dui rhoncus nisl, ut scelerisque arcu nunc ac diam. Curabitur tempus, libero et sodales egestas, massa quam lacinia diam, eu laoreet urna lectus in odio. Aenean consequat, ante nec cursus ornare, libero lectus dignissim ante, id semper leo quam eget dui. Quisque non nunc et risus blandit mattis. Sed lorem enim, bibendum nec luctus eu, pulvinar et nisi. Integer porta bibendum sapien, ut viverra sem placerat a. Curabitur et eros ac enim gravida feugiat sed sed mauris.
       </div>
     </div>
   </form>
@@ -183,10 +279,16 @@ window.addEventListener('load', function () {
   new Vue({
     data: {
       selectedProduct: null,
+      selectedProducts: [],
       name: null,
       company: null,
       email: null,
+      email_confirm: null,
       discount_code: null,
+      first_name: null,
+      last_name: null,
+      title: null,
+      dietary_restrictions: null,
       products: {{ site.data.products | jsonify }},
       errors: {},
       loading: false
@@ -258,7 +360,7 @@ window.addEventListener('load', function () {
             name: vm.name,
             company: vm.company,
             email: vm.email,
-            sku: vm.selectedProduct,
+            sku: vm.selectedProducts[0],
             discount_code: vm.discount_code
           }
           axios.post('https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==', postData).then(function (response) {
@@ -288,7 +390,14 @@ window.addEventListener('load', function () {
         }
 
         this.errors = errors;
-      }
+        },
+        toggleProduct: function (productId) {
+          if (this.selectedProducts.includes(productId)) {
+          
+          } else {
+            this.selectedProducts.push(productId)
+          }
+        }
     }
   })
 })
