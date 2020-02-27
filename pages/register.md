@@ -48,6 +48,11 @@ permalink: /register/
   padding: 8px;
 }
 
+.product-button.selected {
+background-color: #ff0000;
+color: #ffffff;
+}
+
 .registrant-information {
   margin-top: 40px;
 }
@@ -190,7 +195,7 @@ permalink: /register/
         <div class="product-description" v-html="product.description"></div>
       </div>
       <div class="product-price">
-        <div class="product-button" v-on:click="toggleProduct(product.sku)">
+        <div class="product-button" v-on:click="toggleProduct(product.sku)" v-bind:class="selectedProducts.includes(product.sku) ? 'selected': ''">
           {{ product.price }}
         </div>
       </div>
@@ -393,7 +398,10 @@ window.addEventListener('load', function () {
         },
         toggleProduct: function (productId) {
           if (this.selectedProducts.includes(productId)) {
-          
+            const currentIndex = _.findIndex(this.selectedProducts, { sku: productId })
+            if (currentIndex !== -1) {
+              this.selectedProducts.splice(currentIndex, 1)
+            }
           } else {
             this.selectedProducts.push(productId)
           }
