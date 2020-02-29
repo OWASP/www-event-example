@@ -182,10 +182,24 @@ color: #ffffff;
 </style>
 
 {% raw %}
-<div id="registration-app" class="registration-container" v-cloak>
-  <h1>Event Title</h1>
-  <p style="margin-bottom: 40px; font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, odio vel fermentum condimentum, ipsum dui rhoncus nisl, ut scelerisque arcu nunc ac diam. Curabitur tempus, libero et sodales egestas, massa quam lacinia diam, eu laoreet urna lectus in odio. Aenean consequat, ante nec cursus ornare, libero lectus dignissim ante, id semper leo quam eget dui. Quisque non nunc et risus blandit mattis. Sed lorem enim, bibendum nec luctus eu, pulvinar et nisi. Integer porta bibendum sapien, ut viverra sem placerat a. Curabitur et eros ac enim gravida feugiat sed sed mauris.</p>
-  <h2 style="margin-bottom: 20px;">Tickets</h2>
+## Global AppSec - Dublin 2020
+
+Welcome to Global AppSec Dublin 2020 presented by the OWASP Foundation. Formerly known as AppSec EU, the Global AppSec Conference is the premier application security conference for developers and security experts. Designed for private and public sector infosec professionals, the OWASP three day training and two day conference equips developers, defenders, and advocates to build a more secure web.
+
+Join us for a celebration of leading application security technologies, speakers, prospects, and community, at this unique event that will build on everything you already know to expect from an OWASP Global Conference. Questions? [events@owasp.com](mailto:events@owasp.com?subject=Global%20AppSec%20Dublin%20Inquiry)
+
+### Logistics
+- Conference: Thursday, June 18 through Friday, June 19, 2020
+- Training Offerings: JUne 15-17 and agenda to be finalized before March 25th.
+
+### Location:
+ Spencer Dock
+ North Wall Quay
+ Dublin 1 D01 T1W6
+ Ireland
+ 
+ <div id="registration-app" class="registration-container" v-cloak>
+ <h2 style="margin-bottom: 20px;">Tickets</h2>
   <div class="product-listing" style="border-bottom: 1px solid #000000; padding-bottom: 20px; margin-bottom: 20px;">
     <div class="product-list-item" v-for="product in productListing">
       <div class="product-information">
