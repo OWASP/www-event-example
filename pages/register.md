@@ -10,7 +10,7 @@ permalink: /register/
 [v-cloak] {display: none}
 
 .registration-container {
-  max-width: 60%;
+  max-width: 80%;
 }
 
 .product-list-item {
