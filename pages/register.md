@@ -1,7 +1,7 @@
 ---
 
 title: Global AppSec Dublin Registration
-layout: col-generic
+layout: event-noheader
 permalink: /register/
 
 ---
