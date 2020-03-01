@@ -8,12 +8,11 @@
             "name": "Early Bird Conference",
             "amount": 50000,
             "metadata": {
-                "type": "regular",
-                "description": "Conference includes three days of sessions, networking events, and exhibition.",
-                "inventory": "100",
-                "starting_inventory": "100",
-                "display_start": "2020-02-29",
-                "display_end": "2020-04-01"
+                "repo_name": "www-event-example",
+                "type": "event",
+                "currency": "eur",
+                "success_url": "https://dublin.globalappsec.org/registration-success/",
+                "cancel_url": "https://dublin.globalappsec.org/registration-cancel/"
             }
         }
     ]
