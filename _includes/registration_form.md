@@ -194,6 +194,10 @@
   background-color: #ff0000;
 }
 
+.purchase-button:hover {
+  background-color: #8B0000;
+}
+
 .help-text {
   font-size: 70%;
 }
@@ -236,27 +240,20 @@
         placeholder="Confirm Email Address" />
         <div class="error-text" v-if="errors.email_confirm">{{ errors.email_confirm[0] }}</div>
       </div>
-      <div class="extra-pad">
+      <div class="pad-field">
         <input type="text" v-model="company" aria-label="Company Name"
         placeholder="Company Name" />
         <div class="error-text" v-if="errors.company">{{ errors.company[0] }}</div>
-      </div>
-      <div class="pad-field" style="display: flex">
-        <div style="width: 50%; padding-right: 10px;">
-          <input type="text" v-model="first_name" aria-label="First Name"
-          placeholder="First Name" />
-          <div class="error-text" v-if="errors.first_name">{{ errors.first_name[0] }}</div>
-        </div>
-        <div style="width: 50%; padding-left: 10px;">
-          <input type="text" v-model="last_name" aria-label="Last Name"
-          placeholder="Last Name" />
-          <div class="error-text" v-if="errors.last_name">{{ errors.last_name[0] }}</div>
-        </div>
       </div>
       <div class="extra-pad">
         <input type="text" v-model="title" aria-label="Title"
         placeholder="Title" />
         <div class="error-text" v-if="errors.title">{{ errors.title[0] }}</div>
+      </div>
+      <div class="extra-pad">
+        <input type="text" v-model="name" aria-label="Full Name"
+        placeholder="Full Name" />
+        <div class="error-text" v-if="errors.name">{{ errors.name[0] }}</div>
       </div>
       <div class="extra-pad" style="display: flex">
         <div style="width: 50%; padding-right: 10px;">
@@ -283,11 +280,12 @@
       </div>
       <div class="extra-pad">
         <label class="checkbox-container">Agree to Terms of Purchase <sup><strong>*</strong></sup>
-          <input type="checkbox">
+          <input type="checkbox" v-model="terms_of_purchase">
           <span class="checkmark"></span>
         </label>
+        <div class="error-text" v-if="errors.terms_of_purchase">{{ errors.terms_of_purchase[0] }}</div>
         <label class="checkbox-container">Join the OWASP Mailing List
-          <input type="checkbox">
+          <input type="checkbox" v-model="mailing_list">
           <span class="checkmark"></span>
         </label>
       </div>
@@ -296,7 +294,8 @@
           <button class="cta-button purchase-button" type="submit" v-bind:disabled="loading">Purchase Ticket</button>
         </div>
         <div style="flex: 1;">
-          <input type="text" v-model="discount_code" aria-label="Discount Code (if applicable)" placeholder="Discount Code (if applicable)" />
+          <input type="text" class="discount_code" v-model="discount_code" aria-label="Discount Code (if applicable)" placeholder="Discount Code (if applicable)" />
+          <div class="error-text" v-if="errors.discount_code">{{ errors.discount_code[0] }}</div>
           <div class="help-text">Note discounts will be applied at checkout</div>
         </div>
       </div>
@@ -326,14 +325,15 @@ window.addEventListener('load', function () {
       email: null,
       email_confirm: null,
       discount_code: null,
-      first_name: null,
-      last_name: null,
+      name: null,
       title: null,
       dietary_restrictions: null,
       experience: null,
       persona: null,
       country: null,
       city: null,
+      terms_of_purchase: false,
+      mailing_list: false,
       products: {{ site.data.products | jsonify }},
       countries: {{ site.data.countries | jsonify }},
       errors: {},
@@ -424,8 +424,7 @@ window.addEventListener('load', function () {
           })
         } else {
           const postData = {
-            first_name: vm.first_name,
-            last_name: vm.last_name,
+            name: vm.name,
             company: vm.company,
             email: vm.email,
             title: vm.title,
@@ -434,8 +433,9 @@ window.addEventListener('load', function () {
             persona: vm.persona,
             country: vm.country,
             city: vm.city,
-            products: vm.selectedProducts,
-            discount_code: vm.discount_code
+            sku: vm.selectedProducts[0],
+            discount_code: vm.discount_code,
+            mailing_list: vm.mailing_list
           }
           axios.post('https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==', postData).then(function (response) {
 	    stripe.redirectToCheckout({
@@ -463,12 +463,8 @@ window.addEventListener('load', function () {
           }
         }
 
-        if (!this.first_name) {
-          errors.first_name = ['First name is required'];
-        }
-
-        if (!this.last_name) {
-          errors.last_name = ['Last name is required'];
+        if (!this.name) {
+          errors.name = ['Name is required'];
         }
 
         if (!this.country) {
@@ -489,6 +485,10 @@ window.addEventListener('load', function () {
 
         if (!this.selectedProducts.length) {
           errors.product = ['Please select a ticket option below']
+        }
+        
+        if (!this.terms_of_purchase) {
+          errors.terms_of_purchase = ['You must agree to the terms of puchase']
         }
 
         this.errors = errors;
