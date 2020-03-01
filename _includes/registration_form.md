@@ -30,10 +30,18 @@
 .cta-button {
   display: inline-block;
   cursor: pointer;
+  padding: 9px 15px;
+  border-width: 0;
+  border-radius: 4.5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none !important;
+  background-color: #e6e6e6;
+  color: #444;
 }
 
 .cta-button.selected, .cta-button.selected:hover {
-  background-color: #ff0000;
+  background-color: {{ include.primary_color | default: "#ff0000" }};
   color: #ffffff;
 }
 
@@ -56,7 +64,7 @@
 }
 
 .ticket-button.selected {
-  background-color: #ff0000;
+  background-color: {{ include.primary_color | default: "#ff0000" }};
   color: #ffffff;
 }
 
@@ -86,7 +94,8 @@
 }
 
 .registration-container {
-  max-width: 100%;
+  margin-top: 40px;
+  max-width: 70%;
 }
 
 .pad-field {
@@ -105,6 +114,7 @@
   width: 100%;
   border: 1px solid #000000;
   padding: 8px;
+  font: inherit;
 }
 
 .checkbox-container {
@@ -141,7 +151,7 @@
 }
 
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #ff0000;
+  background-color: {{ include.primary_color | default: "#ff0000" }};
 }
 
 .checkbox-container .checkmark:after {
@@ -167,12 +177,17 @@
 }
 
 .multiselect__option--highlight {
-  background: #ff0000 !important;
+  background: {{ include.primary_color | default: "#ff0000" }} !important;
 }
 
 .multiselect__tags {
   border-radius: 0px !important;
   border: 1px solid #000000 !important;
+}
+
+.multiselect__tag, .multiselect__tag:hover, .multiselect__tag-icon:hover, .multiselect__tag-icon:after {
+  background: {{ include.primary_color | default: "#ff0000" }} !important;
+  color: #ffffff !important;
 }
 
 .error-text {
@@ -191,7 +206,8 @@
 }
 
 .purchase-button {
-  background-color: #ff0000;
+  background-color: {{ include.primary_color | default: "#ff0000" }};
+  color: #ffffff;
 }
 
 .purchase-button:hover {
