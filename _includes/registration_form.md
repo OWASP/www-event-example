@@ -13,7 +13,7 @@
         <div class="ticket-option-description" v-html="product.description"></div>
       </div>
       <div class="ticket-buy-button">
-        <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
+        <div class="cta-button grey select" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
           <div class="product-price">{{ product.price }}</div>
         </div>
       </div>
