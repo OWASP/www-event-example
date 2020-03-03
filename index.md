@@ -2,7 +2,7 @@
 
 title: Global AppSec Example 2020
 layout: event
-registration_url: https://owasp.org
+registration_url: register/
 training: January 1 - 3
 conference: January 4 - 5
 venue: OWASP Foundation Event Center<br>101 Simian Sands<br>Montpelier, VT
@@ -14,8 +14,11 @@ pitch: "Global AppSec - Example is coming January 1-5, 2055 to the OWASP Foundat
 
 ---
 
+<!-- rebuild 8 -->
+
 ***{{ page.venue }}***
 
 {{ page.pitch }}
+
 
 
