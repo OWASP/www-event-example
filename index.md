@@ -14,7 +14,7 @@ pitch: "Global AppSec - Example is coming January 1-5, 2055 to the OWASP Foundat
 
 ---
 
-<!-- rebuild 6 -->
+<!-- rebuild 7 -->
 
 ***{{ page.venue }}***
 
