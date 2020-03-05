@@ -33,6 +33,15 @@
                 "type": "regular",
                 "description": "<p>Testing</p>"
             }
+        },
+        {
+            "id": "sku_Gr7X8cviwdpb2E",
+            "name": "Test Product 3",
+            "amount": 5000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>Testing</p>"
+            }
         }
     ]
 }
