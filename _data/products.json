@@ -24,6 +24,15 @@
                 "type": "regular",
                 "description": "<p>testing again</p>"
             }
+        },
+        {
+            "id": "sku_Gr7UfkHknrYfa2",
+            "name": "Test product 2",
+            "amount": 5000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>Testing</p>"
+            }
         }
     ]
 }
