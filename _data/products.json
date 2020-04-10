@@ -15,6 +15,18 @@
                 "discountable": "True",
                 "display_order": "1"
             }
+        },
+        {
+            "id": "sku_H4aiIocSZZuTJV",
+            "name": "Discount exempt product",
+            "amount": 20000,
+            "metadata": {
+                "type": "regular",
+                "inventory": "100",
+                "starting_inventory": "100",
+                "description": "<p>Discount codes will not apply to this product</p>",
+                "display_order": "2"
+            }
         }
     ]
 }
