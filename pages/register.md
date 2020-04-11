@@ -17,4 +17,4 @@ Join us for a celebration of leading application security technologies, speakers
 - Training Offerings: JUne 15-17 and agenda to be finalized before March 25th.
 - Location: Spencer Dock, North Wall Quay, Dublin 1 D01 T1W6, Ireland
 
-{% include registration_form.md %}
+{% include registration_form.md show_dietary_restrictions="false" stripe_key="pk_test_u4OyMFMbz6tp9sit2bjdHRnT00bac5mrL2" checkout_url="https://owaspadmin.azurewebsites.net/api/TestEventsCheckout?code=kzkh0HlBTCc58xvdjb2jPCIQBy0xTsTVE7xlCh9ILlqaPEEM/u0nkQ==" %}

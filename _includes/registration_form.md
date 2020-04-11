@@ -1,11 +1,234 @@
 <style>
 [v-cloak] {display: none}
+
+.event h1, .event h2, .event h3 {
+  margin-left: 0;
+}
+
+.event-information {
+  margin-bottom: 40px;
+}
+
+.ticket-option {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  display: flex;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.ticket-option:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ticket-buy-button {
+  width: 280px;
+  text-align: right;
+}
+
+.cta-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 9px 15px;
+  border-width: 0;
+  border-radius: 4.5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none !important;
+  background-color: #e6e6e6;
+  color: #444;
+}
+
+.cta-button.selected, .cta-button.selected:hover {
+  background-color: {{ include.primary_color | default: "#ff0000" }};
+  color: #ffffff;
+}
+
+.ticket-button {
+  border: 1px solid #d3d3d3;
+  font-size: 85%;
+  padding: 10px;
+  background-color: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.ticket-button:hover {
+  background-color: #000000 !important;
+  color: #ffffff;
+}
+
+.ticket-button.selected {
+  background-color: {{ include.primary_color | default: "#ff0000" }};
+  color: #ffffff;
+}
+
+.ticket-button .product-notice {
+  font-size: 50%;
+}
+
+.ticket-option-information {
+  flex: 1;
+}
+
+.ticket-option-title {
+  font-weight: bold;
+  font-size: 105%;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.ticket-option-description {
+  font-size: 85%;
+}
+
+.ticket-listing {
+  padding-bottom: 40px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #000000;
+}
+
+.registration-container {
+  margin-top: 40px;
+  max-width: 70%;
+}
+
+.pad-field {
+  margin-bottom: 10px;
+}
+
+.extra-pad {
+  margin-bottom: 25px;
+}
+
+.registration-form {
+  max-width: 70%;
+}
+
+.registration-form input {
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 8px;
+  font: inherit;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: {{ include.primary_color | default: "#ff0000" }};
+}
+
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.multiselect__option--highlight {
+  background: {{ include.primary_color | default: "#ff0000" }} !important;
+}
+
+.multiselect__tags {
+  border-radius: 0px !important;
+  border: 1px solid #000000 !important;
+}
+
+.multiselect__tag, .multiselect__tag:hover, .multiselect__tag-icon:hover, .multiselect__tag-icon:after {
+  background: {{ include.primary_color | default: "#ff0000" }} !important;
+  color: #ffffff !important;
+}
+
+.error-text {
+  color: #ff0000;
+  font-size: 75%;
+  margin-top: 4px !important;
+}
+
+.event ul {
+  padding-inline-start: 0;
+}
+
+.button-discount-code-container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.purchase-button {
+  background-color: {{ include.primary_color | default: "#ff0000" }};
+  color: #ffffff;
+}
+
+.purchase-button:hover {
+  background-color: #8B0000;
+}
+
+.help-text {
+  font-size: 70%;
+}
+
+@media (max-width: 768px) {
+  .registration-container, registration-form {
+    max-width: 100%;
+  }
+}
 </style>
 
 {% raw %}
 <div id="registration-app" class="registration-container" v-cloak>
   <div class="ticket-listing">
-    <h2 style="margin-bottom: 30px;">Tickets</h2>
+    <h2 style="margin-bottom: 30px;">Select your Tickets</h2>
     <div class="error-text" v-if="errors.product">{{ errors.product[0] }}</div>
     <div class="ticket-option" v-for="product in productListing">
       <div class="ticket-option-information">
@@ -13,7 +236,7 @@
         <div class="ticket-option-description" v-html="product.description"></div>
       </div>
       <div class="ticket-buy-button">
-        <div class="cta-button grey select" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
+        <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
           <div class="product-price">{{ product.price }}</div>
         </div>
       </div>
@@ -25,12 +248,12 @@
     <form v-on:submit.prevent="handleSubmit">
       <div class="pad-field">
         <input type="text" v-model="email" aria-label="Email Address"
-        placeholder="Email Address" />
+        placeholder="Email Address (required)" />
         <div class="error-text" v-if="errors.email">{{ errors.email[0] }}</div>
       </div>
       <div class="extra-pad">
         <input type="text" v-model="email_confirm" aria-label="Confirm Email Address"
-        placeholder="Confirm Email Address" />
+        placeholder="Confirm Email Address (required)" />
         <div class="error-text" v-if="errors.email_confirm">{{ errors.email_confirm[0] }}</div>
       </div>
       <div class="pad-field">
@@ -45,34 +268,34 @@
       </div>
       <div class="extra-pad">
         <input type="text" v-model="name" aria-label="Full Name"
-        placeholder="Full Name" />
+        placeholder="Full Name (required)" />
         <div class="error-text" v-if="errors.name">{{ errors.name[0] }}</div>
       </div>
       <div class="extra-pad" style="display: flex">
         <div style="width: 50%; padding-right: 10px;">
-          <multi-select v-bind:options="countries" v-model="country" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Country"></multi-select>
+          <multi-select v-bind:options="countries" v-model="country" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Country (required)"></multi-select>
         <div class="error-text" v-if="errors.country">{{ errors.country[0] }}</div>
         </div>
         <div style="width: 50%; padding-left: 10px;">
           <input type="text" v-model="city" aria-label="City"
-          placeholder="City" />
+          placeholder="City (required)" />
           <div class="error-text" v-if="errors.city">{{ errors.city[0] }}</div>
         </div>
       </div>
       <div class="extra-pad">
-        <multi-select v-bind:options="experienceOptions" v-model="experience" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Select your experience level"></multi-select>
+        <multi-select v-bind:options="experienceOptions" v-model="experience" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Select your experience level (required)"></multi-select>
         <div class="error-text" v-if="errors.experience">{{ errors.experience[0] }}</div>
       </div>
       <div class="extra-pad">
-        <multi-select v-bind:options="personaOptions" v-model="persona" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Select your persona"></multi-select>
+        <multi-select v-bind:options="personaOptions" v-model="persona" v-bind:searchable="false" v-bind:show-labels="false" placeholder="Select your persona (required)"></multi-select>
         <div class="error-text" v-if="errors.persona">{{ errors.persona[0] }}</div>
       </div>
-      <div class="extra-pad">
-        <multi-select v-bind:options="dietaryRestrictionOptions" v-model="dietary_restrictions" v-bind:searchable="false" v-bind:multiple="true" v-bind:show-labels="false" placeholder="Select your dietary restrictions"></multi-select>
+      <div class="extra-pad" v-if="showDietaryRestrictions">
+        <multi-select v-bind:options="dietaryRestrictionOptions" v-model="dietary_restrictions" v-bind:searchable="false" v-bind:multiple="true" v-bind:show-labels="false" placeholder="Select your dietary restrictions (if any)"></multi-select>
         <div class="error-text" v-if="errors.dietary_restrictions">{{ errors.dietary_restrictions[0] }}</div>
       </div>
       <div class="extra-pad">
-        <label class="checkbox-container">Agree to Terms of Purchase <sup><strong>*</strong></sup>
+        <label class="checkbox-container">Agree to Terms of Purchase & Attendance <sup><strong>*</strong></sup>
           <input type="checkbox" v-model="terms_of_purchase">
           <span class="checkmark"></span>
         </label>
@@ -87,14 +310,13 @@
           <button class="cta-button purchase-button" type="submit" v-bind:disabled="loading">Purchase Ticket</button>
         </div>
         <div style="flex: 1;">
-          <input type="text" class="discount_code" v-model="discount_code" aria-label="Discount Code (if applicable)" placeholder="Discount Code (if applicable)" />
+          <input type="text" class="discount_code" v-model="discount_code" aria-label="Discount Code" placeholder="Discount Code (if applicable)" />
           <div class="error-text" v-if="errors.discount_code">{{ errors.discount_code[0] }}</div>
           <div class="help-text">Note discounts will be applied at checkout</div>
         </div>
       </div>
       <div class="help-text">
-        <sup><strong>*</strong></sup> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vestibulum egestas arcu a suscipit. Nullam feugiat a urna a convallis. Donec in justo quis lacus condimentum euismod. Sed vulputate turpis mi, sed efficitur enim ornare eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis porttitor ipsum. Nunc bibendum risus orci, ac dapibus lectus gravida sed.
-      </div>
+        <sup><strong>*</strong></sup>Registrations are accepted on a full-payment, first-come, first-served basis only. Registration fees are non-refundable and non-transferable. By purchasing a registration you automatically agree to comply with the <a href="https://owasp.org/www-policy/operational/conferences-events" target="_blank">OWASP Conference and Event Attendee Policy</a> and consent to receive emails containing information regarding this specific event and any training courses for which you registered. Additionally you can elect to receive marketing emails from us by selecting "Join the OWASP Marketing Mail List." Marketing mails include information and special offers for upcoming conferences, meetings, and other opportunities offered to you. You can revoke your consent to receive Marketing Mail List emails at any time by using the Unsubscribe link found at the bottom of these emails.</div>
     </form>
   </div>
 </div>
@@ -109,7 +331,7 @@
 <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
 <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
 <script>
-var stripe = Stripe('pk_test_u4OyMFMbz6tp9sit2bjdHRnT00bac5mrL2');
+var stripe = Stripe('{{ include.stripe_key | default: "pk_live_mw0B2kiXQTFkD44liAEI03oT00S5AGfSV3" }}');
 window.addEventListener('load', function () {
   const app = new Vue({
     data: {
@@ -139,7 +361,8 @@ window.addEventListener('load', function () {
       personaOptions: [
         'Defender',
         'Builder',
-        'Breaker'
+        'Breaker',
+	'Other'
       ],
       dietaryRestrictionOptions: [
         'Gluten-Free',
@@ -149,7 +372,8 @@ window.addEventListener('load', function () {
         'Shellfish Allergy',
         'Vegan',
         'Vegetarian'
-      ]
+      ],
+      showDietaryRestrictions: {{ include.show_dietary_restrictions | default: true }}
     },
     components: {
       MultiSelect: window.VueMultiselect.default
@@ -158,7 +382,10 @@ window.addEventListener('load', function () {
       productListing: function () {
         let vm = this;
         let products = [];
-        _.each(this.products.products, function (product) {
+        let productListing = _.orderBy(this.products.products, function (product) {
+          return product.metadata.display_order;
+        });
+        _.each(productListing, function (product) {
           let shouldDisplay = true;
           if (product.metadata.display_start || product.metadata.display_end) {
             if (product.metadata.display_start) {
@@ -226,16 +453,20 @@ window.addEventListener('load', function () {
             persona: vm.persona,
             country: vm.country,
             city: vm.city,
-            sku: vm.selectedProducts[0],
+            sku: vm.selectedProducts,
             discount_code: vm.discount_code,
             mailing_list: vm.mailing_list
           }
-          axios.post('https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==', postData).then(function (response) {
-	    stripe.redirectToCheckout({
-	      sessionId: response.data.data.session_id
-	    }).then(function (result) {
-	      console.log(result.error.message)
-	    }); 
+          axios.post('{{ include.checkout_url | default: "https://owaspadmin.azurewebsites.net/api/EventsCheckout?code=qIyazIloMxpvGtTkSI0cXNoDEwzNIcFe9xp7bGm54t0lakuBEKJ73Q==" }}', postData).then(function (response) {
+            if (response.data.data.response_type && response.data.data.response_type === 'redirect') {
+              window.location.href = response.data.data.redirect_url
+            } else {
+              stripe.redirectToCheckout({
+                sessionId: response.data.data.session_id
+              }).then(function (result) {
+                console.log(result.error.message)
+              }); 
+            }
 	  }).catch(function (error) {
 	    vm.errors = error.response.data.errors
 	    vm.loading = false
