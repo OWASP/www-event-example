@@ -306,8 +306,16 @@
         </label>
       </div>
       <div class="button-discount-code-container">
-        <div style="margin-right: 80px;">
-          <button class="cta-button purchase-button" type="submit" v-bind:disabled="loading">Purchase Ticket</button>
+        <div style="margin-right: 80px; width: 40%;">
+          <div v-if="loading" style="display: flex;">
+	    <div style="margin-right: 10px; align-self: center;">
+	      <i class="fa-2x fas fa-spinner fa-spin"></i>
+	    </div>
+            <div style="font-size: 14px; align-self: center;">Preparing your purchase...</div>
+          </div>
+          <div v-else>
+            <button class="cta-button purchase-button" type="submit">Purchase Ticket</button>
+          </div>
         </div>
         <div style="flex: 1;">
           <input type="text" class="discount_code" v-model="discount_code" aria-label="Discount Code" placeholder="Discount Code (if applicable)" />
@@ -325,6 +333,7 @@
 <script src="https://unpkg.com/vue"></script>
 <script src="https://js.stripe.com/v3"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
