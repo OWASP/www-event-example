@@ -13,6 +13,18 @@
                 "description": "<p>This is  a test product</p>",
                 "display_order": "1"
             }
+        },
+        {
+            "id": "sku_HME8iEA6E3GHsX",
+            "name": "Discountable product",
+            "amount": 20000,
+            "metadata": {
+                "type": "regular",
+                "inventory": "10",
+                "description": "<p>Another test product</p>",
+                "discountable": "True",
+                "display_order": "2"
+            }
         }
     ]
 }
