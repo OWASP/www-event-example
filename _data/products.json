@@ -20,7 +20,7 @@
             "amount": 20000,
             "metadata": {
                 "type": "regular",
-                "inventory": "9",
+                "inventory": "8",
                 "description": "<p>Another test product</p>",
                 "discountable": "True",
                 "display_order": "2"
