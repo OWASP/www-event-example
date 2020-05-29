@@ -27,24 +27,6 @@
   text-align: right;
 }
 
-.cta-button {
-  display: inline-block;
-  cursor: pointer;
-  padding: 9px 15px;
-  border-width: 0;
-  border-radius: 4.5px;
-  font-size: 18px;
-  color: white;
-  text-decoration: none !important;
-  background-color: #e6e6e6;
-  color: #444;
-}
-
-.cta-button.selected, .cta-button.selected:hover {
-  background-color: {{ include.primary_color | default: "#ff0000" }};
-  color: #ffffff;
-}
-
 .ticket-button {
   border: 1px solid #d3d3d3;
   font-size: 85%;
@@ -231,15 +213,16 @@
     <h2 style="margin-bottom: 30px;">Select your Tickets</h2>
     <div class="error-text" v-if="errors.product">{{ errors.product[0] }}</div>
     <div class="ticket-option" v-for="product in productListing">
-      <div class="ticket-option-information">
-        <div class="ticket-option-title" v-on:click="toggleProduct(product.sku)">{{ product.name }}</div>
-        <div class="ticket-option-description" v-html="product.description"></div>
-      </div>
-      <div class="ticket-buy-button">
-        <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
-          <div class="product-price">{{ product.price }}</div>
+        <div v-bind:id="product.sku" class="ticket-option-information">
+          <section v-bind:id="product.sku"></section>
+          <div class="ticket-option-title" v-on:click="toggleProduct(product.sku)">{{ product.name }}</div>
+          <div class="ticket-option-description" v-html="product.description"></div>
         </div>
-      </div>
+        <div class="ticket-buy-button">
+          <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
+            <div class="product-price">{{ product.price }}</div>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -323,8 +306,8 @@
           <div class="help-text">Note discounts will be applied at checkout</div>
         </div>
       </div>
-      <div class="help-text">
-        <sup><strong>*</strong></sup>Registrations are accepted on a full-payment, first-come, first-served basis only. Registration fees are non-refundable and non-transferable. By purchasing a registration you automatically agree to comply with the <a href="https://owasp.org/www-policy/operational/conferences-events" target="_blank">OWASP Conference and Event Attendee Policy</a> and consent to receive emails containing information regarding this specific event and any training courses for which you registered. Additionally you can elect to receive marketing emails from us by selecting "Join the OWASP Marketing Mail List." Marketing mails include information and special offers for upcoming conferences, meetings, and other opportunities offered to you. You can revoke your consent to receive Marketing Mail List emails at any time by using the Unsubscribe link found at the bottom of these emails.</div>
+      <p class="legal-text">* Registrations are accepted on a full-payment, first-come, first-served basis only. Registration fees are non-refundable and non-transferable. For training classes, your email address may be shared with the Trainer for any session prep and tools. Any recording of training sessions is STRICTLY PROHIBITED. By purchasing a registration you automatically agree to comply with the <a href="https://owasp.org/www-policy/operational/conferences-events" target="_blank">OWASP Conference and Event Attendee Policy</a> and consent to receive emails containing information regarding this specific event and any training courses for which you registered.Additionally you can elect to receive marketing emails from us by selecting "Join the OWASP Marketing Mail List." Marketing mails include information and special offers for upcoming conferences, meetings, and other opportunities offered to you. You can revoke your consent to receive Marketing Mail List emails at any time by using the Unsubscribe link found at the bottom of these emails.</p>
+      <p class="legal-text">As we all struggle with our collective "new normal" from the global COVID-19 pandemic, the OWASP Foundation is offering a limited number of discounted tickets to our Virtual AppSec Days.  Please <a href = "https://owasp.wufoo.com/forms/virtual-appsec-days-scholarship-application/">Apply Here</a></p>
     </form>
   </div>
 </div>
@@ -387,12 +370,22 @@ window.addEventListener('load', function () {
     components: {
       MultiSelect: window.VueMultiselect.default
     },
+    created: function(){
+      const queryParams = new URLSearchParams(window.location.search);
+      if (queryParams.has('id')) {
+        prod_sku = queryParams.get('id');
+        this.toggleProduct(prod_sku);
+        this.$nextTick(function () {
+          VueScrollTo.scrollTo('#' + prod_sku);
+        })
+      }
+    },
     computed: {
       productListing: function () {
         let vm = this;
         let products = [];
         let productListing = _.orderBy(this.products.products, function (product) {
-          return product.metadata.display_order;
+          return parseInt(product.metadata.display_order);
         });
         _.each(productListing, function (product) {
           let shouldDisplay = true;
