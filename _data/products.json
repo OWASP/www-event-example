@@ -2,18 +2,5 @@
     "id": "prod_HMhQccSy6EMdqi",
     "name": "Test Event 6",
     "currency": "usd",
-    "products": [
-        {
-            "id": "sku_HMhRC4NA9cWZj3",
-            "name": "Test Product",
-            "amount": 10000,
-            "metadata": {
-                "type": "regular",
-                "inventory": "43",
-                "description": "<p>This is a test product</p>",
-                "discountable": "True",
-                "display_order": "1"
-            }
-        }
-    ]
+    "products": []
 }
