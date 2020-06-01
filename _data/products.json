@@ -14,6 +14,17 @@
                 "discountable": "True",
                 "display_order": "1"
             }
+        },
+        {
+            "id": "sku_HO7YWwXGpBp5C7",
+            "name": "CtF no discounting",
+            "amount": 5000,
+            "metadata": {
+                "type": "regular",
+                "inventory": "2",
+                "description": "<p>description</p>",
+                "display_order": "2"
+            }
         }
     ]
 }
