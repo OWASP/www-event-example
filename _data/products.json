@@ -23,7 +23,7 @@
                 "type": "regular",
                 "inventory": "2",
                 "description": "<p>description</p>",
-                "display_order": "1"
+                "display_order": "0"
             }
         },
         {
