@@ -1,1 +1,19 @@
-{"id": "prod_HO7XABHbf8fuaI", "name": "Testing SOS", "currency": "usd", "products": []}
+{
+    "id": "prod_HO7XABHbf8fuaI",
+    "name": "Testing SOS",
+    "currency": "usd",
+    "products": [
+        {
+            "id": "sku_HO7YlsHDbod6JI",
+            "name": "CtF with Discounts",
+            "amount": 2500,
+            "metadata": {
+                "type": "regular",
+                "inventory": "10",
+                "description": "<p>Capture the flage</p>",
+                "discountable": "True",
+                "display_order": "1"
+            }
+        }
+    ]
+}
