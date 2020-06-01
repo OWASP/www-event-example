@@ -36,6 +36,16 @@
                 "discountable": "True",
                 "display_order": "3"
             }
+        },
+        {
+            "id": "sku_HO7ak2qEuukmvO",
+            "name": "$FREE Conference",
+            "amount": 0,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>A free thing</p>",
+                "display_order": "4"
+            }
         }
     ]
 }
