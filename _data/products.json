@@ -25,6 +25,17 @@
                 "description": "<p>description</p>",
                 "display_order": "2"
             }
+        },
+        {
+            "id": "sku_HO7Zr1J3QeY8kc",
+            "name": "Seth & Ken's Adventure",
+            "amount": 49500,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>Lots of stuff</p>",
+                "discountable": "True",
+                "display_order": "3"
+            }
         }
     ]
 }
