@@ -9,7 +9,7 @@
             "amount": 2500,
             "metadata": {
                 "type": "regular",
-                "inventory": "6",
+                "inventory": "5",
                 "description": "<p>Capture the flage</p>",
                 "discountable": "True",
                 "display_order": "-4"
