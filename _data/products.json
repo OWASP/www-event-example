@@ -21,7 +21,7 @@
             "amount": 5000,
             "metadata": {
                 "type": "regular",
-                "inventory": "5",
+                "inventory": "1",
                 "description": "<p>description</p>",
                 "display_order": "-5",
                 "discountable": "False"
