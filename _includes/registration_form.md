@@ -211,7 +211,7 @@
 <div id="registration-app" class="registration-container" v-cloak>
   <div class="ticket-listing">
     <h2 style="margin-bottom: 30px;">Select your Tickets</h2>
-    <div class="error-text" v-if="errors.product">{{ errors.product[0] }}</div>
+    <div class="error-text" v-if="errors.product" style="padding: 10px 0px;">{{ errors.product[0] }}</div>
     <div class="ticket-option" v-for="product in productListing">
         <div v-bind:id="product.sku" class="ticket-option-information">
           <section v-bind:id="product.sku"></section>
@@ -219,8 +219,11 @@
           <div class="ticket-option-description" v-html="product.description"></div>
         </div>
         <div class="ticket-buy-button">
-          <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }">
+          <div class="cta-button grey" v-on:click="toggleProduct(product.sku)" v-bind:class="{ selected: selectedProducts.includes(product.sku) }" v-if="product.inventory === null || parseInt(product.inventory) > 0">
             <div class="product-price">{{ product.price }}</div>
+          </div>
+          <div style="text-align: center" v-else>
+            <strong>Sold Out</strong>
           </div>
         </div>
     </div>
@@ -409,7 +412,8 @@ window.addEventListener('load', function () {
               name: product.name,
               amount: product.amount,
               price: vm.formatPrice(product.amount),
-              description: product.metadata.description
+              description: product.metadata.description,
+              inventory: _.get(product.metadata, 'inventory', null)
             });
           }
         });
