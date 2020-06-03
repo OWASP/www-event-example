@@ -57,6 +57,17 @@
                 "description": "<p>no discounts</p>",
                 "display_order": "1"
             }
+        },
+        {
+            "id": "sku_HOpZ9pTjkBCrEF",
+            "name": "Late to the game",
+            "amount": 1000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>des</p>",
+                "discountable": "True",
+                "display_order": "2"
+            }
         }
     ]
 }
