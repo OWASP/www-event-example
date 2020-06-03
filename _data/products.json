@@ -47,6 +47,16 @@
                 "description": "<p>A free thing</p>",
                 "display_order": "0"
             }
+        },
+        {
+            "id": "sku_HOpFu116ddfzFY",
+            "name": "Big training No discounts!",
+            "amount": 100000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>no discounts</p>",
+                "display_order": "1"
+            }
         }
     ]
 }
