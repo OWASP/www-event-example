@@ -45,7 +45,7 @@
             "metadata": {
                 "type": "regular",
                 "description": "<p>A free thing</p>",
-                "display_order": "-1"
+                "display_order": "0"
             }
         }
     ]
