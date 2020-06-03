@@ -21,9 +21,10 @@
             "amount": 5000,
             "metadata": {
                 "type": "regular",
-                "inventory": "0",
+                "inventory": "5",
                 "description": "<p>description</p>",
-                "display_order": "2"
+                "display_order": "-3",
+                "discountable": "False"
             }
         },
         {
