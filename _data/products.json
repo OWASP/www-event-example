@@ -68,6 +68,17 @@
                 "discountable": "True",
                 "display_order": "2"
             }
+        },
+        {
+            "id": "sku_HcK2rVKgGb8w6r",
+            "name": "Testing",
+            "amount": 5000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>test</p>",
+                "discountable": "True",
+                "display_order": "60"
+            }
         }
     ]
 }
