@@ -55,7 +55,8 @@
             "metadata": {
                 "type": "regular",
                 "description": "<p>no discounts</p>",
-                "display_order": "1"
+                "display_order": "-10",
+                "discountable": "False"
             }
         },
         {
