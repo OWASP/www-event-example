@@ -1,22 +1,22 @@
 - title: HOME
-  url: /www-event-example/
+  url: /
 - title: PROGRAM
   items:
     - title: Schedule
-      url : /www-event-example/schedule/
+      url : /schedule/
     - title: Keynotes
-      url : /www-event-example/
+      url : /
     - title: Training
-      url : /www-event-example/
+      url : /
     - title: Call for Speakers/Trainers
-      url : /www-event-example/
+      url : /
 - title: ABOUT
   items:
     - title: Sponsors & Exhibitors
-      url  : /www-event-example/sponsors/
+      url  : /sponsors/
     - title: Volunteer
-      url  : /www-event-example/
+      url  : /
     - title: Venue, Travel, & Lodging
-      url  : /www-event-example/
+      url  : /
     - title: Progam Team
-      url  : /www-event-example/
+      url  : /

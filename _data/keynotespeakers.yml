@@ -4,17 +4,17 @@
   bio  : <p>Descriptive bio text.</p>
   subject:
   abstract:
+- image: staff_alonna.jpg
+  name: Alonna Stock
+  title: Executive Director
+  bio: <p>Descriptive bio text.</p>
+  subject: 
+  abstract: 
+  style: background-repeat:no-repeat;
 - image: staff_harold.jpg
   name: Harold Blankenship
   title: Director of Technology and Projects
   bio: <p>Descriptive bio text.</p> 
   subject:  
   abstract:
-  style: background-repeat:no-repeat;
-- image: staff_mike.jpg
-  name: Mike McCamon
-  title: Executive Director
-  bio: <p>Descriptive bio text.</p>
-  subject: 
-  abstract: 
   style: background-repeat:no-repeat;

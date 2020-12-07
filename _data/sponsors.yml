@@ -1,15 +1,15 @@
-- logo: /www-event-example/assets/images/sponsors/securecodewarrior_gold.png
-  name: Secure Code Warrior
-  url: https://securecodewarrior.com
+- logo: /assets/images/sponsors/sponsor1.png
+  name: Sponsor1
+  url: https://owasp.org
   backgroundSize: 125px
   type: Gold
-- logo: /www-event-example/assets/images/sponsors/contrast-security.png
-  name: Contrast Security
-  url: https://www.contrastsecurity.com
+- logo: /assets/images/sponsors/sponsor2.png
+  name: Sponsor2
+  url: https://owasp.org
   backgroundSize: 125px
   type: Ruby
-- logo: /www-event-example/assets/images/sponsors/ripstech_black.png
-  name: RIPS Technologies
-  url: https://ripstech.com
+- logo: /assets/images/sponsors/sponsor3.png
+  name: Sponsor3
+  url: https://owasp.org
   backgroundSize: 125px
   type: Ruby
