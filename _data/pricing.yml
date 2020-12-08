@@ -1,8 +1,10 @@
 - title: Full Conference
   price: TBD
+  info: *See pricing*
   items: 
     - title: Early Bird
       price: TBD
+      info: *Contact Bob*
 - title: Member Conference
   price: TBD
   items:
