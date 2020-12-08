@@ -9,7 +9,7 @@ layout: event
 
 ***{{ site.data.event-details.venue }}***
 
-{{ site.data.event-details.pitch }}
+{{ site.data.event-details.pitch | markdownify }}
 
 
 
