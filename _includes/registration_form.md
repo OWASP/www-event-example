@@ -484,6 +484,9 @@ window.addEventListener('load', function () {
       },
       validateForm: function () {
         let errors = {};
+        
+        this.email = this.email.toLowerCase();
+        this.email_confirm = this.email.toLowerCase();
 
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
           errors.email = ['Please enter a valid email address'];
