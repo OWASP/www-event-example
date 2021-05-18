@@ -2,7 +2,7 @@
   Trainers:
     - Name: Johann Johann
       Email: test.test@owasp.org
-      Image: 
+      Image: /assets/images/johannjohann.jpg
       Twitter: 'testhandle'
       Biography: >-
         Johann Johann is the most profoundly compelling speaker in a decade.  Nay, a century!  Johann waxes eloquent about all things cyber and security.  It was Johann
@@ -27,7 +27,7 @@
   Trainers:
     - Name: Johann2 Johann2
       Email: test.test@owasp.org
-      Image: 
+      Image: /assets/images/johannjohann.jpg
       Twitter: 'testhandle2'
       Biography: >-
         Johann Johann is the most profoundly compelling speaker in a decade.  Nay, a century!  Johann waxes eloquent about all things cyber and security.  It was Johann

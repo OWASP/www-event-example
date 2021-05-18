@@ -6,8 +6,6 @@ permalink: /trainings/
 
 ---
 
-<link rel="stylesheet" type="text/css" href="/assets/css/training.css">
-
 # {{ page.title }}
 
 {% assign trainings = site.data.trainings | sort: 'Title' %}
