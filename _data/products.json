@@ -81,6 +81,28 @@
                 "discountable": "True",
                 "display_order": "60"
             }
+        },
+        {
+            "id": "sku_johannjohann1",
+            "name": "Hands-on Cyber in Security",
+            "amount": 35000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>test</p>",
+                "discountable": "True",
+                "display_order": "60"
+            }
+        },
+        {
+            "id": "sku_johannjohann2",
+            "name": "Hands-on Cyber in Security 2",
+            "amount": 35000,
+            "metadata": {
+                "type": "regular",
+                "description": "<p>test</p>",
+                "discountable": "True",
+                "display_order": "60"
+            }
         }
     ]
 }

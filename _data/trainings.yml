@@ -1,0 +1,50 @@
+- Type: Training
+  Trainers:
+    - Name: Johann Johann
+      Email: test.test@owasp.org
+      Image: /assets/images/johannjohann.jpg
+      Twitter: 'testhandle'
+      Biography: >-
+        Johann Johann is the most profoundly compelling speaker in a decade.  Nay, a century!  Johann waxes eloquent about all things cyber and security.  It was Johann
+        who first coined the phrase cybersecurity after his subterranean sanctum was defiled through digital penetration of his defences and his trove of cyber
+        treasures were plundered.
+      TrainerId: johann_johann1
+  Title: Hands-on Cyber in Security
+  URL: /register/?id=sku_johannjohann1
+  SectionId: sku_johannjohann1
+  Description: >-
+    An action-packed cybersecurity course for DevSecOps to improve interaction with a focus on manual locution and agility.
+    The training includes group exercises for better understanding of the
+    following topics.
+    <ul>
+    <li>DevOps for Agile teams</li>
+    <li>Automation's Role in Development, Security, and Operations</li>
+    <li>Modelling the Threats</li>
+    <li>The Cloud with the Silver Lining</li>
+    </ul>
+    So be sure to sign up and prepare to learn how security is cyberrific.
+- Type: Training
+  Trainers:
+    - Name: Johann2 Johann2
+      Email: test.test@owasp.org
+      Image: /assets/images/johannjohann.jpg
+      Twitter: 'testhandle2'
+      Biography: >-
+        Johann Johann is the most profoundly compelling speaker in a decade.  Nay, a century!  Johann waxes eloquent about all things cyber and security.  It was Johann
+        who first coined the phrase cybersecurity after his subterranean sanctum was defiled through digital penetration of his defences and his trove of cyber
+        treasures were plundered.
+      TrainerId: johann_johann2
+  Title: Hands-on Cyber in Security 2
+  URL: /register/?id=sku_johannjohann2
+  SectionId: sku_johannjohann2
+  Description: >-
+    An action-packed cybersecurity course for DevSecOps to improve interaction with a focus on manual locution and agility.
+    The training includes group exercises for better understanding of the
+    following topics.
+    <ul>
+    <li>DevOps for Agile teams</li>
+    <li>Automation's Role in Development, Security, and Operations</li>
+    <li>Modelling the Threats</li>
+    <li>The Cloud with the Silver Lining</li>
+    </ul>
+    So be sure to sign up and prepare to learn how security is cyberrific.
