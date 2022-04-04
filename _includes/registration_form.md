@@ -316,7 +316,7 @@
 </div>
 {% endraw %}
 
-<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue@2"></script>
 <script src="https://js.stripe.com/v3"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js"></script>
@@ -326,7 +326,7 @@
 <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
 <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
 <script>
-var stripe = Stripe('{{ include.stripe_key | default: "pk_live_mw0B2kiXQTFkD44liAEI03oT00S5AGfSV3" }}');
+var stripe = Stripe('{{ include.stripe_key | default: "pk_test_u4OyMFMbz6tp9sit2bjdHRnT00bac5mrL2" }}');//"pk_live_mw0B2kiXQTFkD44liAEI03oT00S5AGfSV3" }}');
 window.addEventListener('load', function () {
   const app = new Vue({
     data: {
