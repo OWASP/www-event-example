@@ -1,7 +1,9 @@
 ---
 
 title: Global AppSec Example 2020
-layout: event-2.0
+# test
+layout: event
+# test two
 
 ---
 
