@@ -1,4 +1,5 @@
 title: OWASP Event Example
+pricing-title: Pricing
 dates: Augembuary 99th-101st
 training: Augembuary 99-100
 conference: Augembuary 101
@@ -7,6 +8,10 @@ logo_url: https://owasp.org/
 venue: OWASP Foundation Event Center
 location: 101 Simian Sands, Montpelier, VT
 background: background.jpg
+background: AppSec_SF_Banner1920x480.jpeg
+background-style: 'linear-gradient(to right, #242158 50%, #84282b 50%)'
+background-padding: 0em 2em 0em 2em
+keynotestextcolor: fff
 color: 797979
 analytics: 
 registration_open: true
